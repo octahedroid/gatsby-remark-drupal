@@ -9,7 +9,9 @@ NOTE: To make sure your Drupal site expose markdown use the Toast UI Editor inte
 
 ## Install
 
-`npm install --save @weknow/gatsby-drupal-remark`
+```
+npm install --save @weknow/gatsby-remark-drupal
+```
 
 ## How to use
 
