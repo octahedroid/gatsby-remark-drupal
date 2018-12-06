@@ -1,7 +1,7 @@
 {
     "name": "@weknow/gatsby-remark-drupal",
     "description": "Provides support for markdown preprocessing for Drupal body fields.",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "author": "Jesus Manuel Olivas <jmolivas@weknowinc.com>",
     "repository": {
       "type": "git",

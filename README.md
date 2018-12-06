@@ -18,7 +18,7 @@ npm install --save @weknow/gatsby-remark-drupal
 ### Default configuration
 ```javascript
       // In your gatsby-config.js
-      resolve: 'gatsby-transformer-remark',
+      resolve: '@weknow/gatsby-transformer-remark',
       options: {
         plugins: [
           'gatsby-remark-drupal',
@@ -27,7 +27,7 @@ npm install --save @weknow/gatsby-remark-drupal
 ### Custom configuration
 ```javascript
       // In your gatsby-config.js
-      resolve: 'gatsby-transformer-remark',
+      resolve: '@weknow/gatsby-transformer-remark',
       options: {
         plugins: [
           {
