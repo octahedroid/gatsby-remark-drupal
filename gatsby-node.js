@@ -33,16 +33,6 @@ exports.onCreateNode = ({
         } = actions;
 
         let content = node.body.value;
-        const textNode = {
-            id: `${node.id}-MarkdownBody`,
-            parent: node.id,
-            dir: path.resolve('./'),
-            internal: {
-                type: _camelCase(`${node.internal.type}MarkdownBody`),
-                mediaType: 'text/markdown'
-            }
-        };
-
         const inlineImageRegExp = /\(\/sites[^)]+\)/gi;
         const nodeImages = content.match(inlineImageRegExp);
         if (nodeImages) {
@@ -51,15 +41,26 @@ exports.onCreateNode = ({
                 const nodeImage = element.slice(1, -1);
                 const nodeImageCached = nodes.find(contentNode => (contentNode.internal.type === 'File' && contentNode.internal.description.includes(nodeImage)));
                 if (nodeImageCached) {
-                    console.log(`mapping ${nodeImage}`);
+                    console.log(`replace ${nodeImage}`);
                     content = content.replace(new RegExp(nodeImage, 'g'), nodeImageCached.relativePath);
                 }
             });
         }
 
-        textNode.internal.content = content;
-        textNode.internal.contentDigest = digest(content);
+        const textNode = {
+            id: `${node.id}-MarkdownBody`,
+            parent: node.id,
+            dir: path.resolve('./'),
+            internal: {
+                type: _camelCase(`${node.internal.type}MarkdownBody`),
+                mediaType: 'text/markdown',
+                content: content,
+                contentDigest: digest(content)
+            }
+        };
+
         createNode(textNode);
+
         createNodeField({
             node,
             name: 'markdownBody___NODE',

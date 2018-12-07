@@ -3,7 +3,7 @@
 Provides support for markdown preprocessing to Drupal body fields.
 
 * Creates a new `text/markdown` field for drupal body fields of the selected content types.
-* Map drupal relative paths to previously downloaded and cached images by the `gatsby-source-drupal` plugin.
+* Replaces Drupal relative image paths to previously downloaded and cached images by the `gatsby-source-drupal ` plugin.
 
 NOTE: To make sure your Drupal site expose markdown use the Toast UI Editor integration for Drupal provided by the [tui_editor](https://www.drupal.org/project/tui_editor) module.
 
@@ -36,8 +36,6 @@ npm install --save @weknow/gatsby-remark-drupal
               nodes: [`article`,`page`, `landing`, `cta`]
             }
           }
-        ]
-      }
 ```
 ## Options
 | Name | Default | Description |
